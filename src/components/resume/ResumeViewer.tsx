@@ -1,3 +1,18 @@
+"use client";
+
+import dynamic from "next/dynamic";
+
+// react-pdf renders to <canvas> via pdfjs-dist, which touches browser-only
+// APIs (DOMMatrix, etc.) — load it client-only so it never runs during SSR.
+const PdfDocument = dynamic(() => import("./PdfDocument"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[70vh] min-h-[480px] w-full items-center justify-center border border-border-subtle bg-background-elevated text-foreground-muted">
+      Loading resume&hellip;
+    </div>
+  ),
+});
+
 type ResumeViewerProps = {
   pdfPath: string;
 };
@@ -23,22 +38,7 @@ export default function ResumeViewer({ pdfPath }: ResumeViewerProps) {
         </a>
       </div>
 
-      <object
-        data={pdfPath}
-        type="application/pdf"
-        className="h-[70vh] w-full min-h-[480px] border border-border-subtle bg-background-elevated"
-        aria-label="Embedded resume PDF"
-      >
-        <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center text-foreground-muted">
-          <p>Your browser can&apos;t display the embedded PDF.</p>
-          <a
-            href={pdfPath}
-            className="text-accent underline underline-offset-4 hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            Open the resume PDF directly
-          </a>
-        </div>
-      </object>
+      <PdfDocument pdfPath={pdfPath} />
     </div>
   );
 }

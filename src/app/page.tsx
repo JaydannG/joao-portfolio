@@ -19,9 +19,6 @@ export default function Home() {
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
               {siteConfig.name}
             </h1>
-            <p className="max-w-(--container-prose) text-lg text-foreground-muted">
-              {siteConfig.tagline}
-            </p>
             <div className="mt-2 flex flex-wrap gap-4">
               <Link
                 href="/projects"

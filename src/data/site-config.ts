@@ -6,12 +6,12 @@
 
 export const siteConfig = {
   name: "Joao Sieber Bittencourt",
-  title: "VFX Artist & Compositor",
-  tagline:
-    "PLACEHOLDER — Crafting photoreal composites and visual effects for film, television, and commercials.",
+  title: "Compositing Artist",
+  // tagline:
+  //   "PLACEHOLDER — Crafting photoreal composites and visual effects for film, television, and commercials.",
 
   // PLACEHOLDER Vimeo demo reel. Replace with Joao's real reel URL/ID.
-  demoReelUrl: "https://vimeo.com/76979871",
+  demoReelUrl: "https://vimeo.com/1169838515?fl=pl&fe=vl",
   demoReelTitle: "PLACEHOLDER — Joao Sieber Bittencourt VFX Demo Reel",
 
   resumePdfPath: "/resume/placeholder-resume.pdf",
